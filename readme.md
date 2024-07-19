@@ -1,6 +1,6 @@
-### Patika.dev - PhpBasics
+# Php Basic Login App :gem:
 
-Login uygulamasında kullandığımız tasarım.
+This project assignment has been prepared for the 'Kodluyoruz' PHP course. It is a basic php login app.
 
 ![img.png](img.png)
 
