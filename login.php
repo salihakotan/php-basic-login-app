@@ -1,3 +1,10 @@
+<?php
+include 'fonksiyon/helper.php';
+session_start();
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,12 +27,14 @@
             Giriş Yap
         </div>
         <div class="card-body">
-            <div class="alert alert-danger">Hatalı şifre</div>
-            <form action="" method="post">
+            <?php if (session('error')): ?>
+            <div class="alert alert-danger"><?= session('error') ?></div>
+            <?php endif ?>
+            <form action="islem.php?islem=giris" method="post">
                 <label for="username" class="text-success">Kullanıcı Adınız</label>
-                <input type="text" name="username" class="form-control">
+                <input type="text" name="username" value="<?= session('username')?>" class="form-control">
                 <label for="password" class="text-success">Şifreniz</label>
-                <input type="text" name="password" class="form-control mb-4">
+                <input type="text" name="password" value="<?= session('password')?>" class="form-control mb-4">
                 <button class="btn btn-success mb-4 w-100">Giriş Yap</button>
             </form>
         </div>
@@ -37,3 +46,8 @@
 </div>
 </body>
 </html>
+
+<?php
+$_SESSION['error'] = null;
+$_SESSION['username'] = null;
+$_SESSION['password'] = null;
